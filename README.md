@@ -1,12 +1,12 @@
 # Smart Medibox - Wokwi Simulation Branch - with NodeRed Flows
 
-This branch, named `Wokwi-Simulation-with-NodeRed-Flows`, is dedicated to the Smart Medibox project code configured to be compatible with simulation inside the Wokwi platform. Wokwi allows you to simulate Arduino projects in a web browser, making it a convenient tool for testing and debugging. THis branch included NodeRed flows.
+This branch, named `Wokwi-Simulation-with-NodeRed-Flows`, is dedicated to the Smart Medibox project code configured to be compatible with simulation inside the Wokwi platform. Wokwi allows you to simulate Arduino projects in a web browser, making it a convenient tool for testing and debugging. This branch included NodeRed flows.
 
 ![Wokwi Simulation Diagram](docs/Wokwi-Simul-Diagram-with-NodeRed-flow.png)
 
 ## Purpose
 
-The purpose of this branch is to provide a version of the Smart Medibox project code that can be easily simulated using Wokwi. By configuring the code to work with Wokwi's simulation environment, developers can test the functionality of the Smart Medibox without the need for physical hardware.
+The purpose of this branch is to provide a version of the Smart Medibox project code with Node-Red flows that can be easily simulated using Wokwi. By configuring the code to work with Wokwi's simulation environment, developers can test the functionality of the Smart Medibox without the need for physical hardware.
 
 ## Usage
 
@@ -19,7 +19,7 @@ To simulate the Smart Medibox project in Wokwi:
 
 ## Simulation Link
 
-You can simulate this project on [Wokwi](https://wokwi.com/projects/397074918136117249).
+You can simulate this project on [Wokwi](https://wokwi.com/projects/397072503957521409).
 
 ## Branch Structure
 
