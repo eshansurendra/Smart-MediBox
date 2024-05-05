@@ -1,6 +1,8 @@
-# Smart Medibox - Wokwi Simulation Branch
+# Smart Medibox - Wokwi Simulation Branch - Without Node-Red Flows
 
 This branch, named `Wokwi-Simulation`, is dedicated to the Smart Medibox project code configured to be compatible with simulation inside the Wokwi platform. Wokwi allows you to simulate Arduino projects in a web browser, making it a convenient tool for testing and debugging.
+
+![Wokwi Simulation Diagram](docs/Wokwi-Simul-Diagram.png)
 
 ## Purpose
 
