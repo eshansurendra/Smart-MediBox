@@ -1,0 +1,55 @@
+[
+    {
+        "id": "aaf86c2a5b89a525",
+        "type": "mqtt in",
+        "z": "18cc067c93d5298d",
+        "name": "MQTT IN",
+        "topic": "MEDIBOX_Send_210625",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "e794870d45f595e7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "4d6b5ddf322a188a",
+                "849fbcb63ae28ee8"
+            ]
+        ]
+    },
+    {
+        "id": "e794870d45f595e7",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Server",
+        "broker": "https://test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
