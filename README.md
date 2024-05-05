@@ -15,6 +15,10 @@ To simulate the Smart Medibox project in Wokwi:
 3. Run the simulation to test the functionality of the Smart Medibox code.
 4. Debug and refine the code as needed directly within the Wokwi environment.
 
+## Simulation Link
+
+You can simulate this project on [Wokwi](https://wokwi.com/projects/397074918136117249).
+
 ## Branch Structure
 
 This branch contains the necessary modifications to the Smart Medibox code to ensure compatibility with Wokwi simulation. It may include changes such as adjustments to hardware configurations, simulation-specific code optimizations, or other modifications to ensure seamless simulation within the Wokwi platform.
