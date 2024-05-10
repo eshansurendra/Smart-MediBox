@@ -4,7 +4,14 @@
 #include <Adafruit_SSD1306.h>
 #include <DHTesp.h>
 #include <WiFi.h>
+#include <ESP32Servo.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
 
+
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+JsonDocument data;
 
 // Define OLED related parameters
 #define SCREEN_WIDTH 128
@@ -83,6 +90,36 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 // Initialize DHTesp sensor object
 DHTesp dhtSensor;
 
+//Servo related parameters
+#define SERVO 26
+int servo_angle;
+Servo servo_motor;
+
+#define LDR_1 36 // VP pin
+#define LDR_2 39 // VN pin
+
+#define MQTT_SERVER "test.mosquitto.org"
+#define MQTT_PORT 1883
+#define MQTT_DEVICE_ID "Smart-Medibox-210625"
+#define DATA_SENDING_TOPIC "MEDIBOX_Send_210625"
+#define DATA_RECEPTION_TOPIC "MEDIBOX_Receive_210625"
+
+
+// LDR Parameters for calculating Luminance and its change.
+#define EPSILON 0.03
+#define TEMPSILON 0.01
+#define HUMIDITY_EPSILON 0.05
+
+#define LINEAR_MAPPING 0
+#define FINITE_INFINITY 10000
+#define GAMMA 0.7
+#define RL10 50
+#define RESISTOR 10000
+#define VCC 3.3
+
+//Main Switch parameter to check whether the Medibox is on or not
+
+
 void setup() {
 
   // Initialize pin modes
@@ -96,6 +133,13 @@ void setup() {
 
   // Setup DHT sensor
   dhtSensor.setup(DHTPIN,DHTesp::DHT22);
+
+  // Setup Servo
+  servo_motor.attach(SERVO);
+
+  // Setup LDR
+  pinMode(LDR_1, INPUT);
+  pinMode(LDR_2, INPUT);
   
   // Start serial communication
   Serial.begin(9600);
@@ -130,9 +174,14 @@ void setup() {
   delay(500);
   display.clearDisplay();
 
+  setupMQTT();
+
 }
 
 void loop() {
+
+  brokerConnectMQTT();
+
   // Update time and check alarms
   update_time_with_check_alarm();
   
@@ -143,7 +192,11 @@ void loop() {
   }
 
   // Check temperature
-  check_temp();
+  float temperature = check_temp();
+  TempAndHumidity data = dhtSensor.getTempAndHumidity();
+  float humidity = data.humidity;
+
+  send_mqtt_data(temperature, humidity);
 }
 
 // Function to print a line of text on the display
@@ -536,7 +589,7 @@ void set_alarm(int alarm) {
 }
 
 // Function to check temperature and humidity levels
-void check_temp(void) {
+float check_temp(void) {
 
     // Get temperature and humidity data from the sensor
     TempAndHumidity data = dhtSensor.getTempAndHumidity();
@@ -558,4 +611,186 @@ void check_temp(void) {
         display.clearDisplay();
         print_line("HUMD LOW", 0, 50, 1);
     }
+    float temperature = data.temperature;
+    return temperature;
+}
+
+// Function to turn the servo motor to a specified angle
+void turn_servo_motor(int angle)
+{
+    // Check if the desired angle is different from the current angle
+    if (servo_angle != angle)
+    {
+        // Write the new angle to the servo motor
+        servo_motor.write(angle); // Servo motor can only turn between 0 and 180 degrees.
+
+        // Add a small delay to allow the servo motor to reach the desired position
+        delay(20);
+
+        // Print a message indicating the angle by which the slider has turned
+        Serial.println("Slider turned by an angle of: " + String(angle) + " degrees.");
+
+        // Update the current angle of the servo motor
+        servo_angle = angle;
+    }
+    else
+    {
+        // Print a message indicating that the slider is already at the desired angle
+        Serial.println("Slider already at the desired angle.");
+    }
+}
+
+
+// Function to establish connection with MQTT broker
+// Keeps attempting connection until successful
+void brokerConnectMQTT()
+{
+    // Keep attempting to connect to the MQTT broker until successful
+    while (!mqttClient.connected())
+    {
+        // Print a message indicating the attempt to connect
+        Serial.println("Attempting MQTT connection...");
+
+        // Try to connect to the MQTT broker with the device ID
+        if (mqttClient.connect(MQTT_DEVICE_ID))
+        {
+            // If connection is successful, print a success message
+            Serial.println("connected");
+
+            // Subscribe to the topic for receiving data
+            mqttClient.subscribe(DATA_RECEPTION_TOPIC);
+        }
+        else
+        {
+            // If connection fails, print an error message with the state code
+            Serial.print("failed with state ");
+            Serial.print(mqttClient.state());
+
+            // Wait for a short period before retrying
+            delay(5000);
+        }
+    }
+
+    // Keep the MQTT client loop running
+    mqttClient.loop();
+}
+
+//Callback function for handling received MQTT data
+void dataReceptionCallback(char *topic, byte *message, unsigned int length)
+{
+    // Print the received message topic
+    Serial.print("Message arrived [");
+    Serial.print(topic);
+    Serial.print("] ");
+
+    // Initialize a String to store the received data
+    String degree;
+
+    // Loop through the received message and append each byte to the String
+    for (int i = 0; i < length; i++)
+    {
+        degree += (char)message[i]; // Convert byte to char and append to the String
+    }
+
+    // Print the received data for debugging purposes
+    Serial.println(degree);
+
+    // Check if the received topic matches the expected topic
+    if (strcmp(topic, DATA_RECEPTION_TOPIC) == 0)
+    {
+        // If the topic matches, convert the received data to an integer and pass it to the function turn_servo_motor
+        turn_servo_motor(degree.toInt());
+    }
+    else
+    {
+        // If the topic doesn't match, print an error message
+        Serial.println("Invalid command");
+    }
+}
+
+
+// Calculates the luminance based on the sensor reading
+float getLuminance(float sensorReading)
+{
+    float lux;
+
+    // Check if linear mapping is enabled
+    if (LINEAR_MAPPING)
+    {
+        // Calculate lux using linear mapping formula
+        lux = sensorReading / FINITE_INFINITY;
+
+        // Check if lux exceeds the defined constant FINITE_INFINITY
+        if (lux >= FINITE_INFINITY)
+            return 1; // Return 1 if lux is greater than or equal to FINITE_INFINITY
+
+        // Return the calculated lux value
+        return lux;
+    }
+    else
+    {
+        // Calculate voltage based on sensor reading and VCC
+        float voltage = sensorReading / 4096.0 * VCC;
+
+        // Calculate resistance based on voltage and known resistor value
+        float resistance = RESISTOR * voltage / (VCC - voltage);
+
+        // Calculate lux using non-linear mapping formula
+        lux = pow(RL10 * 1000 * pow(10, GAMMA) / resistance, (1 / GAMMA));
+
+        // Check if lux exceeds the defined constant FINITE_INFINITY
+        if (lux >= FINITE_INFINITY)
+            return 1; // Return 1 if lux is greater than or equal to FINITE_INFINITY
+
+        // Normalize lux value and return
+        return lux / FINITE_INFINITY;
+    }
+}
+
+
+// Function to send MQTT data including temperature and LDR readings
+void send_mqtt_data(float temperature, float humidity)
+{
+    // Buffer to hold JSON data
+    char dataJson[100];
+
+    // Read LDR sensor values and convert to lux
+    float ldr1 = getLuminance(analogRead(LDR_1));
+    float ldr2 = getLuminance(analogRead(LDR_2));
+
+    // Check if the difference between current and previous readings exceeds threshold values
+    if (fabs(data["LDR1"].as<float>() - ldr1) >= EPSILON || fabs(data["LDR2"].as<float>() - ldr2) >= EPSILON || fabs(data["Temperature"].as<float>() - temperature) >= TEMPSILON || fabs(data["Humidity"].as<float>() - humidity) >= HUMIDITY_EPSILON)
+    {
+        // Update JSON data with new sensor readings
+        data["LDR1"] = ldr1;
+        data["LDR2"] = ldr2;
+        data["Temperature"] = temperature;
+        data["Humidity"] = humidity;
+
+        // Serialize JSON data to string
+        serializeJson(data, dataJson);
+
+        // Print JSON data for debugging
+        Serial.println(dataJson);
+
+        // If MQTT client is not connected, attempt to connect
+        if (!mqttClient.connected())
+        {
+            brokerConnectMQTT();
+        }
+
+        // Publish JSON data to the MQTT topic
+        mqttClient.publish(DATA_SENDING_TOPIC, dataJson);
+    }
+}
+
+
+// Setup MQTT client
+void setupMQTT()
+{
+    // Set MQTT server and port
+    mqttClient.setServer(MQTT_SERVER, MQTT_PORT);
+
+    // Set callback function to handle received MQTT data
+    mqttClient.setCallback(dataReceptionCallback);
 }
