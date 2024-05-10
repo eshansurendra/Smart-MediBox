@@ -95,8 +95,8 @@ DHTesp dhtSensor;
 int servo_angle;
 Servo servo_motor;
 
-#define LDR_1 12
-#define LDR_2 4
+#define LDR_1 36 // VP pin
+#define LDR_2 39 // VN pin
 
 #define MQTT_SERVER "test.mosquitto.org"
 #define MQTT_PORT 1883
@@ -108,6 +108,8 @@ Servo servo_motor;
 // LDR Parameters for calculating Luminance and its change.
 #define EPSILON 0.03
 #define TEMPSILON 0.01
+#define HUMIDITY_EPSILON 0.05
+
 #define LINEAR_MAPPING 0
 #define FINITE_INFINITY 10000
 #define GAMMA 0.7
@@ -189,8 +191,10 @@ void loop() {
 
   // Check temperature
   float temperature = check_temp();
+  TempAndHumidity data = dhtSensor.getTempAndHumidity();
+  float humidity = data.humidity;
 
-  send_mqtt_data(temperature);
+  send_mqtt_data(temperature, humidity);
 }
 
 // Function to print a line of text on the display
@@ -743,7 +747,7 @@ float getLuminance(float sensorReading)
 
 
 // Function to send MQTT data including temperature and LDR readings
-void send_mqtt_data(float temperature)
+void send_mqtt_data(float temperature, float humidity)
 {
     // Buffer to hold JSON data
     char dataJson[100];
@@ -753,12 +757,13 @@ void send_mqtt_data(float temperature)
     float ldr2 = getLuminance(analogRead(LDR_2));
 
     // Check if the difference between current and previous readings exceeds threshold values
-    if (fabs(data["LDR1"].as<float>() - ldr1) >= EPSILON || fabs(data["LDR2"].as<float>() - ldr2) >= EPSILON || fabs(data["Temperature"].as<float>() - temperature) >= TEMPSILON)
+    if (fabs(data["LDR1"].as<float>() - ldr1) >= EPSILON || fabs(data["LDR2"].as<float>() - ldr2) >= EPSILON || fabs(data["Temperature"].as<float>() - temperature) >= TEMPSILON || fabs(data["Humidity"].as<float>() - humidity) >= HUMIDITY_EPSILON)
     {
         // Update JSON data with new sensor readings
         data["LDR1"] = ldr1;
         data["LDR2"] = ldr2;
         data["Temperature"] = temperature;
+        data["Humidity"] = humidity;
 
         // Serialize JSON data to string
         serializeJson(data, dataJson);
