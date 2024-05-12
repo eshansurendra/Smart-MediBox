@@ -2,5 +2,8 @@
 # See https://docs.wokwi.com/guides/libraries
 
 Adafruit SSD1306
-Adafruit GFX Library
 DHT sensor library for ESPx
+PubSubClient
+ArduinoJson
+ESP32Servo
+Adafruit GFX Library

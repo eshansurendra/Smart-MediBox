@@ -1,0 +1,1648 @@
+[
+    {
+        "id": "18cc067c93d5298d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "13d9c5c6874c5d86",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#be00cc",
+                "baseFont": "Verdana,Verdana,Geneva,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#774909",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#774909",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#774909",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#be750e",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#774909",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e794870d45f595e7",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Server",
+        "broker": "https://test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5285bdb0b95877f9",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d4ac752d0c0c9669",
+        "type": "ui_group",
+        "name": "Maximum intensity of light",
+        "tab": "5285bdb0b95877f9",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "505c7b7f55a8a63e",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "5285bdb0b95877f9",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fdb57b529356aa4d",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "59cb6c35f86cce23",
+        "type": "ui_group",
+        "name": "Light Control Settings",
+        "tab": "fdb57b529356aa4d",
+        "order": 1,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3961e078a8c62e4b",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "5285bdb0b95877f9",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "30f6d1adab3bfbdd",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e6b9a2842a7d6bdc",
+        "type": "ui_group",
+        "name": "Welcome",
+        "tab": "30f6d1adab3bfbdd",
+        "order": 1,
+        "disp": false,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "125749fad1160862",
+        "type": "ui_tab",
+        "name": "Help",
+        "icon": "help",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e7eda0e2f0258975",
+        "type": "ui_group",
+        "name": "Support and Contact",
+        "tab": "125749fad1160862",
+        "order": 1,
+        "disp": false,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "145d908836536227",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e7eda0e2f0258975",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4f1ef0bbee1e0a53",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "37b01a5239efd453",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b42b6bac30f04d95",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "deff05f10c047b5d",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "470b20079f154076",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "eb2168a820436874",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8799ad3b64e8b4b3",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c2155f45de461c32",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1c765e5cdf252ff5",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "062617247f491c3f",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "e6b9a2842a7d6bdc",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8a5339b75c531afc",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "59cb6c35f86cce23",
+        "order": 2,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "d08f64f0375da8e4",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "d4ac752d0c0c9669",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b1cdd8281591c331",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "d4ac752d0c0c9669",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "be1a5371226fef3c",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "505c7b7f55a8a63e",
+        "order": 2,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "1ea41e43eaa95f0b",
+        "type": "ui_spacer",
+        "z": "18cc067c93d5298d",
+        "name": "spacer",
+        "group": "3961e078a8c62e4b",
+        "order": 2,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "aaf86c2a5b89a525",
+        "type": "mqtt in",
+        "z": "18cc067c93d5298d",
+        "name": "MQTT IN",
+        "topic": "MEDIBOX_Send_210625__",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "e794870d45f595e7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 340,
+        "wires": [
+            [
+                "4d6b5ddf322a188a",
+                "849fbcb63ae28ee8",
+                "ad8859026390605c",
+                "e423ad0b262624ed"
+            ]
+        ]
+    },
+    {
+        "id": "6d26c0d8af9fa319",
+        "type": "ui_gauge",
+        "z": "18cc067c93d5298d",
+        "name": "Light Intensity Gauge",
+        "group": "d4ac752d0c0c9669",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Realtime",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "0.33",
+        "seg2": "0.66",
+        "diff": false,
+        "className": "",
+        "x": 760,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "4d6b5ddf322a188a",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": " max_light_intensity()",
+        "func": "let sensorReading1 = parseFloat(msg.payload[\"LDR1\"]); // Assign ldr1 value to sensorReading1\nlet sensorReading2 = parseFloat(msg.payload[\"LDR2\"]); // Assign ldr2 value to sensorReading2\nlet maxValue;\nlet sensorWithMaxValue;\n\n// Check if both LDR readings are valid\nif (!isNaN(sensorReading1) && !isNaN(sensorReading2)) {\n    // Determine which LDR has the maximum light reading\n    if (sensorReading1 > sensorReading2) {\n        maxValue = sensorReading1.toFixed(2); \n        sensorWithMaxValue = 'LDR 1'; // Assign LDR 1 as having the highest value\n    } else {\n        maxValue = sensorReading2.toFixed(2); \n        sensorWithMaxValue = 'LDR 2'; // Assign LDR 2 as having the highest value\n    }\n    global.set(\"maxLightIntensity\", maxValue); // Store the maximum light value globally\n    global.set(\"highLDRSensor\", sensorWithMaxValue); // Store the LDR with the maximum light value globally\n    return { payload: maxValue, high: sensorWithMaxValue }; // Return the maximum light value and the corresponding LDR\n} else {\n    return { payload: -1, high: 'No Data!' }; // Return -1 as the payload and 'No Data!' as the LDR if either LDR reading is invalid\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 640,
+        "wires": [
+            [
+                "f80f323954949893",
+                "593b0f745dd35731"
+            ]
+        ]
+    },
+    {
+        "id": "de81ef9403a70c0b",
+        "type": "ui_chart",
+        "z": "18cc067c93d5298d",
+        "name": "Light Intensity Plot",
+        "group": "d4ac752d0c0c9669",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Last 15 Minutes",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "962a7a33facbdd7d",
+        "type": "ui_toast",
+        "z": "18cc067c93d5298d",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "Error Fetching Light Data!",
+        "topic": "",
+        "name": "Unable to Retrieve Light Data at this Time.",
+        "x": 980,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f80f323954949893",
+        "type": "switch",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "-1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 680,
+        "wires": [
+            [
+                "1cfd5d52d0dcee8e"
+            ],
+            [
+                "6d26c0d8af9fa319",
+                "225dd7bf2dcc0a79",
+                "ec840ab8e7d5dfa8",
+                "a1d2da4705414223"
+            ]
+        ]
+    },
+    {
+        "id": "676ddd8f708b2462",
+        "type": "ui_gauge",
+        "z": "18cc067c93d5298d",
+        "name": "Temperature Gauge",
+        "group": "3961e078a8c62e4b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Realtime",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#e6d628",
+            "#04e600",
+            "#cb3a3a"
+        ],
+        "seg1": "26",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "849fbcb63ae28ee8",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "Temperature()",
+        "func": "\nreturn {payload: parseFloat(msg.payload[\"Temperature\"]).toFixed(2)};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "7753c7ee18ad60ac"
+            ]
+        ]
+    },
+    {
+        "id": "d934e0e03f38b7ef",
+        "type": "ui_chart",
+        "z": "18cc067c93d5298d",
+        "name": "Temperature Plot",
+        "group": "3961e078a8c62e4b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Last Hour",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7753c7ee18ad60ac",
+        "type": "switch",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 440,
+        "wires": [
+            [
+                "676ddd8f708b2462",
+                "b49f879606f733ce"
+            ],
+            [
+                "8dd07d737150ee4f"
+            ]
+        ]
+    },
+    {
+        "id": "6b5427f4ebc16db4",
+        "type": "ui_toast",
+        "z": "18cc067c93d5298d",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "Error Fetching Temperature Data!",
+        "topic": "",
+        "name": "Unable to Retrieve Temperature Data at this Time.",
+        "x": 1010,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "593b0f745dd35731",
+        "type": "ui_text",
+        "z": "18cc067c93d5298d",
+        "group": "d4ac752d0c0c9669",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "Selected LDR No: ",
+        "format": "{{msg.high}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 470,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "625e0464b9463490",
+        "type": "ui_slider",
+        "z": "18cc067c93d5298d",
+        "name": " Set minimum angle of the Window",
+        "label": "Minimum Angle",
+        "tooltip": "",
+        "group": "59cb6c35f86cce23",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "120",
+        "step": "1",
+        "className": "",
+        "x": 540,
+        "y": 1400,
+        "wires": [
+            [
+                "c4bcc1f4e2e77257"
+            ]
+        ]
+    },
+    {
+        "id": "9ea3690c204d3522",
+        "type": "ui_slider",
+        "z": "18cc067c93d5298d",
+        "name": "Set Control Factor of the Window",
+        "label": "Control Factor",
+        "tooltip": "",
+        "group": "59cb6c35f86cce23",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.01",
+        "className": "",
+        "x": 640,
+        "y": 1220,
+        "wires": [
+            [
+                "9fbf6858d3b2b7cc"
+            ]
+        ]
+    },
+    {
+        "id": "d9fd65fb26699848",
+        "type": "mqtt out",
+        "z": "18cc067c93d5298d",
+        "name": "MQTT OUT",
+        "topic": "MEDIBOX_Receive_210625__",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e794870d45f595e7",
+        "x": 2590,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "2e33d40201b5f672",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "calculateMotorAngle()",
+        "func": "// Extract the minimum angle value from the flow\nlet minimumAngle = parseFloat(flow.get(\"minimumAngle\"));\n\n// Extract the control factor value from the flow\nlet controlFactor = parseFloat(flow.get(\"controlFactor\"));\n\n// Extract the maximum light intensity from the global context\nlet maxLightIntensity = parseFloat(global.get(\"maxLightIntensity\"));\n\n// Identify the LDR sensor with the highest light intensity\nlet highLDRSensor = global.get(\"highLDRSensor\");\n\n// Define variables to store calculated values\nlet constantD;\nlet shadeAngle;\n\n// Determine the constant D based on which LDR sensor has the highest light intensity\nif (highLDRSensor === \"LDR 1\") {\n    constantD = 1.5; // Set constantD to 1.5 if LDR 1 has the highest light intensity\n} else {\n    constantD = 0.5; // Set constantD to 0.5 if LDR 2 has the highest light intensity\n}\n\n// Calculate the shade angle using the given formula\nshadeAngle = Math.round(Math.min(minimumAngle * constantD + (180 - minimumAngle) * maxLightIntensity * controlFactor, 180));\n\n// Return the calculated shade angle\nreturn { payload: shadeAngle };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 1360,
+        "wires": [
+            [
+                "e1128276c5a446bc"
+            ]
+        ]
+    },
+    {
+        "id": "c6d41f17778b020d",
+        "type": "ui_dropdown",
+        "z": "18cc067c93d5298d",
+        "name": "Medicine Type Dropdown Menu",
+        "label": "Select the Medicine Type",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "59cb6c35f86cce23",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Manual Set",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Medicine A",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "Medicine B",
+                "value": 3,
+                "type": "num"
+            },
+            {
+                "label": "Medicine C",
+                "value": 4,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 1110,
+        "y": 1020,
+        "wires": [
+            [
+                "7c70f85f1f53a313"
+            ]
+        ]
+    },
+    {
+        "id": "bd73181b6da66569",
+        "type": "trigger",
+        "z": "18cc067c93d5298d",
+        "name": "Default Begin Parameters Trigger",
+        "op1": "{\"minimumAngle\":30,\"controlFactor\":0.75,\"medicineType\":1}",
+        "op2": "0",
+        "op1type": "json",
+        "op2type": "str",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 520,
+        "y": 1020,
+        "wires": [
+            [
+                "07b8842da674b372",
+                "666b35f4793949ec",
+                "4110aad0a5130ffc"
+            ]
+        ],
+        "info": "Sends degault values and triggers starting of sending angles to the medibox.\r\nThis trigger activates when the light data is ready."
+    },
+    {
+        "id": "07b8842da674b372",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "RetrieveMinAngle()",
+        "func": "return { payload: msg.payload[\"minimumAngle\"] };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 1400,
+        "wires": [
+            [
+                "625e0464b9463490"
+            ]
+        ]
+    },
+    {
+        "id": "666b35f4793949ec",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "RetrieveControlFactor()",
+        "func": "\nreturn {payload:msg.payload[\"controlFactor\"]};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 1220,
+        "wires": [
+            [
+                "9ea3690c204d3522"
+            ]
+        ]
+    },
+    {
+        "id": "4110aad0a5130ffc",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "SelectMedicineType()",
+        "func": "return {payload: msg.payload[\"medicineType\"]};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1020,
+        "wires": [
+            [
+                "c6d41f17778b020d"
+            ]
+        ]
+    },
+    {
+        "id": "c4bcc1f4e2e77257",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "flowVarUpdater()",
+        "func": "flow.set(\"minimumAngle\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1420,
+        "wires": [
+            [
+                "2e33d40201b5f672",
+                "52e189295bb01740"
+            ]
+        ]
+    },
+    {
+        "id": "9fbf6858d3b2b7cc",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "flowVarUpdater()",
+        "func": "flow.set(\"controlFactor\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 1300,
+        "wires": [
+            [
+                "2e33d40201b5f672",
+                "52e189295bb01740"
+            ]
+        ]
+    },
+    {
+        "id": "75ac48309e4c07e2",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "Update Sliders According to Selection()",
+        "func": "\n// Set the \"medicineType\" in the flow context to the incoming message payload\nflow.set(\"medicineType\", msg.payload);\n\n// Retrieve the default medical configuration data from the flow context\nlet defMedData = flow.get(\"defMedConfig\");\n\n// Declare variables to store minimum angle and control factor\nlet minimumAngle;\nlet controlFactor;\n\n// Determine the minimum angle and control factor based on the incoming message payload\nif (msg.payload === 2) {\n    // If medicineType is 2, use Medicine A configuration \n    minimumAngle = defMedData[\"A\"][\"minimumAngle\"];\n    controlFactor = defMedData[\"A\"][\"controlFactor\"];\n} else if (msg.payload === 3) {\n    // If medicineType is 3, use Medicine B configuration \n    minimumAngle = defMedData[\"B\"][\"minimumAngle\"];\n    controlFactor = defMedData[\"B\"][\"controlFactor\"];\n} else {\n    // For any other value of medicineType, use Medicine C configuration \n    minimumAngle = defMedData[\"C\"][\"minimumAngle\"];\n    controlFactor = defMedData[\"C\"][\"controlFactor\"];\n}\n\n// Return an object containing the calculated minimum angle and control factor\nreturn { payload: { \"minimumAngle\": minimumAngle, \"controlFactor\": controlFactor } };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1890,
+        "y": 1020,
+        "wires": [
+            [
+                "666b35f4793949ec",
+                "07b8842da674b372"
+            ]
+        ]
+    },
+    {
+        "id": "ec840ab8e7d5dfa8",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Waiit till Stable Value to Use",
+        "func": "deadbandEq",
+        "gap": "5%",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1700,
+        "y": 680,
+        "wires": [
+            [
+                "2e33d40201b5f672"
+            ]
+        ]
+    },
+    {
+        "id": "e1128276c5a446bc",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Waiit till Stable Value to Use",
+        "func": "deadbandEq",
+        "gap": "10",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 2340,
+        "y": 1020,
+        "wires": [
+            [
+                "d9fd65fb26699848"
+            ]
+        ]
+    },
+    {
+        "id": "c91c1f36272d4f18",
+        "type": "switch",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1650,
+        "y": 1020,
+        "wires": [
+            [
+                "75ac48309e4c07e2"
+            ]
+        ]
+    },
+    {
+        "id": "7c70f85f1f53a313",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Waiit till Stable Value to Use",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1420,
+        "y": 1020,
+        "wires": [
+            [
+                "c91c1f36272d4f18"
+            ]
+        ]
+    },
+    {
+        "id": "225dd7bf2dcc0a79",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "defaultMediboxConfiguration()",
+        "func": "return msg;\n\n/*This function (On start tab) contains the default values \nfor the parameters \"controlFactor\" and \"minAngle\" for three medicine presets.\nIt sets them as flow variables on start.\nThis is required for updating the UI when ever a preset medicine isselected in the\ndrop down, but user changes a slider to a non preset configuration.\n(Otherwise their will be infinity loop of updating\nthe sliders and the dropdown.)*/",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Set the default medicine configuration in the flow\nflow.set(\"defMedConfig\", {\n    A: { minimumAngle: 0, controlFactor: 0.2 }, // Medicine A Configuration: minAngle = 0, controlFactor = 0.1\n    B: { minimumAngle: 40, controlFactor: 0.6 }, // Medicine B Configuration: minAngle = 45, controlFactor = 0.5\n    C: { minimumAngle: 25, controlFactor: 1 }    // Medicine C Configuration: minAngle = 20, controlFactor = 1\n});",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 1020,
+        "wires": [
+            [
+                "bd73181b6da66569"
+            ]
+        ]
+    },
+    {
+        "id": "52e189295bb01740",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "resetDropdowmToManual()",
+        "func": "\n// Retrieve the default medical configuration data from the flow context\nlet defaultConfig = flow.get(\"defMedConfig\");\n\n// Retrieve the current minimum angle and control factor from the flow context\nlet currentMinAngle = flow.get(\"minimumAngle\");\nlet currentControlFactor = flow.get(\"controlFactor\");\n\n// Compare the current values with the values from each default configuration (A, B, C)\nlet notMatchA = (currentControlFactor != defaultConfig[\"A\"][\"controlFactor\"] || currentMinAngle != defaultConfig[\"A\"][\"minimumAngle\"]);\nlet notMatchB = (currentControlFactor != defaultConfig[\"B\"][\"controlFactor\"] || currentMinAngle != defaultConfig[\"B\"][\"minimumAngle\"]);\nlet notMatchC = (currentControlFactor != defaultConfig[\"C\"][\"controlFactor\"] || currentMinAngle != defaultConfig[\"C\"][\"minimumAngle\"]);\n\n// Check if the current values do not match any of the default configurations\nif (notMatchA && notMatchB && notMatchC) {\n    return { payload: 1 }; // Return 1 if the current values are not equal to any default configuration values\n} else {\n    return { payload: \"block\" }; // Otherwise, return \"block\"\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1240,
+        "wires": [
+            [
+                "dda0e9ced4b1c697"
+            ]
+        ]
+    },
+    {
+        "id": "dda0e9ced4b1c697",
+        "type": "switch",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "block",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 1100,
+        "wires": [
+            [
+                "c6d41f17778b020d"
+            ]
+        ]
+    },
+    {
+        "id": "8dd07d737150ee4f",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Repeat Block ",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 710,
+        "y": 500,
+        "wires": [
+            [
+                "6b5427f4ebc16db4"
+            ]
+        ]
+    },
+    {
+        "id": "1cfd5d52d0dcee8e",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Repeat Block ",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "962a7a33facbdd7d"
+            ]
+        ]
+    },
+    {
+        "id": "00daccee8e7d8cd4",
+        "type": "trigger",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 950,
+        "y": 440,
+        "wires": [
+            [
+                "d934e0e03f38b7ef"
+            ]
+        ]
+    },
+    {
+        "id": "34a4f7c7d0145883",
+        "type": "trigger",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-10",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 930,
+        "y": 720,
+        "wires": [
+            [
+                "de81ef9403a70c0b"
+            ]
+        ]
+    },
+    {
+        "id": "b49f879606f733ce",
+        "type": "delay",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 440,
+        "wires": [
+            [
+                "00daccee8e7d8cd4"
+            ]
+        ]
+    },
+    {
+        "id": "a1d2da4705414223",
+        "type": "delay",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 720,
+        "wires": [
+            [
+                "34a4f7c7d0145883"
+            ]
+        ]
+    },
+    {
+        "id": "ad8859026390605c",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "Humidity()",
+        "func": "\nreturn {payload: parseFloat(msg.payload[\"Humidity\"]).toFixed(2)};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "8ec8f0b327376b2a"
+            ]
+        ]
+    },
+    {
+        "id": "65acfdaa7b6116bf",
+        "type": "ui_gauge",
+        "z": "18cc067c93d5298d",
+        "name": "Humidity",
+        "group": "505c7b7f55a8a63e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Realtime",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#e6d628",
+            "#04e600",
+            "#cb3a3a"
+        ],
+        "seg1": "60",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "17ec1138db60855a",
+        "type": "ui_chart",
+        "z": "18cc067c93d5298d",
+        "name": "HumidityPlot",
+        "group": "505c7b7f55a8a63e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#299929",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ec8f0b327376b2a",
+        "type": "switch",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "65acfdaa7b6116bf",
+                "c5bcc63cb7351524"
+            ],
+            [
+                "a3012822c9c54927"
+            ]
+        ]
+    },
+    {
+        "id": "4e3006a361d683b1",
+        "type": "ui_toast",
+        "z": "18cc067c93d5298d",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "Error Fetching Humidity Data!",
+        "topic": "",
+        "name": "Unable to Retrieve Humidity Data at this Time.",
+        "x": 1020,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a3012822c9c54927",
+        "type": "rbe",
+        "z": "18cc067c93d5298d",
+        "name": "Repeat Block ",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "4e3006a361d683b1"
+            ]
+        ]
+    },
+    {
+        "id": "5ca88e6c8bedb660",
+        "type": "trigger",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 970,
+        "y": 220,
+        "wires": [
+            [
+                "17ec1138db60855a"
+            ]
+        ]
+    },
+    {
+        "id": "c5bcc63cb7351524",
+        "type": "delay",
+        "z": "18cc067c93d5298d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "5ca88e6c8bedb660"
+            ]
+        ]
+    },
+    {
+        "id": "03a60d48f780d8b4",
+        "type": "ui_template",
+        "z": "18cc067c93d5298d",
+        "group": "e6b9a2842a7d6bdc",
+        "name": "Home Page Template",
+        "order": 1,
+        "width": 15,
+        "height": "8",
+        "format": "<div class=\"welcome-section\">\n  <h1 style=\"font-size: 45px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\">Welcome to Medibox</h1>\n  <p style=\"font-size: 30px; color: #FFFFFF; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\">Your automated solution for managing medications effectively.</p>\n  <button class=\"advance-button\" ng-click=\"send({payload: 'Dashboard'})\">Go to Dashboard</button>\n  <button class=\"advance-button\" ng-click=\"send({payload: 'Settings'})\">Go to Settings</button>\n  <button class=\"advance-button\" ng-click=\"send({payload: 'Help'})\">Go to Help</button>\n</div>\n\n<style>\n  .welcome-section {\n    text-align: center;\n    margin-top: 20px;\n  }\n  \n  .advance-button {\n    background-color: #FF6314;\n    border-radius: 50px;\n    border: none;\n    color: #FFFFFF;\n    cursor: pointer;\n    font-family: Arial, sans-serif;\n    font-size: 24px;\n    font-weight: 700;\n    padding: 15px 40px;\n    text-transform: uppercase;\n    transition: all 0.3s ease;\n  }\n  \n  .advance-button:hover {\n    background-color: #FF4500;\n    box-shadow: 0 4px 6px rgba(255, 99, 20, 0.4);\n    transform: translateY(-2px);\n  }\n  \n  .advance-button:active {\n    transform: translateY(2px);\n  }\n</style>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 240,
+        "y": 1600,
+        "wires": [
+            [
+                "095d5684d9107b97"
+            ]
+        ]
+    },
+    {
+        "id": "095d5684d9107b97",
+        "type": "function",
+        "z": "18cc067c93d5298d",
+        "name": "function 1",
+        "func": "if (msg.payload === \"Dashboard\") {\n    msg.payload = \"Dashboard\";\n    msg.topic = \"Dashboard\";\n    return [msg, null, null];\n} else if (msg.payload === \"Settings\") {\n    msg.payload = \"Settings\";\n    msg.topic = \"Settings\";\n    return [null, msg, null];\n} else if (msg.payload === \"Help\") {\n    msg.payload = \"Help\";\n    msg.topic = \"Help\";\n    return [null, null, msg];\n}\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1700,
+        "wires": [
+            [
+                "7f9ac2f867bd13c3"
+            ],
+            [
+                "47f081445602b781"
+            ],
+            [
+                "e127f2f468bccbf0"
+            ]
+        ]
+    },
+    {
+        "id": "7f9ac2f867bd13c3",
+        "type": "ui_ui_control",
+        "z": "18cc067c93d5298d",
+        "name": "Dashboard",
+        "events": "all",
+        "x": 570,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47f081445602b781",
+        "type": "ui_ui_control",
+        "z": "18cc067c93d5298d",
+        "name": "Settings",
+        "events": "all",
+        "x": 520,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e127f2f468bccbf0",
+        "type": "ui_ui_control",
+        "z": "18cc067c93d5298d",
+        "name": "Help",
+        "events": "all",
+        "x": 510,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5e34f47aa6e28d0",
+        "type": "ui_template",
+        "z": "18cc067c93d5298d",
+        "group": "e7eda0e2f0258975",
+        "name": "Help Page Template",
+        "order": 2,
+        "width": "10",
+        "height": "12",
+        "format": "<div style=\"font-family: Arial, sans-serif; color: #333;\">\n\n    <!-- Heading -->\n    <h2 style=\"color: #007bff;\">Help and Support</h2>\n\n    <!-- Introduction -->\n    <p>Welcome to the Help and Support page for Smart Medibox.</p>\n\n    <!-- FAQs Section -->\n    <h3 style=\"color: #007bff;\">Frequently Asked Questions (FAQs)</h3>\n    <ol style=\"list-style-type: decimal; padding-left: 20px;\">\n        <li>\n            <strong>How do I check my Medibox humidity and temperature?</strong>\n            <p>To check the humidity and temperature of your Medibox, go to the \"Dashboard\" menu. You will find the\n                current humidity and temperature readings displayed there.</p>\n        </li>\n        <li>\n            <strong>How to control the shade of the Medibox?</strong>\n            <p>To control the shade of the Medibox, go to the \"Settings\" tab and adjust the sliders for light intensity\n                and\n                controlling factor. These sliders allow you to set the minimum angle and controlling factor used to\n                adjust the\n                position of the shaded sliding window. Once you've made your adjustments, the shade will dynamically\n                regulate\n                the amount of light entering the Medibox to ensure optimal storage conditions for sensitive medications.\n            </p>\n        </li>\n        <li>\n            <strong>What should I do if I encounter an issue with the Medibox?</strong>\n            <p>If you encounter any issues with the Medibox, please check the troubleshooting section in the user manual\n                for solutions to common problems. If the issue persists, contact our support team for assistance.</p>\n        </li>\n    </ol>\n\n    <!-- Contact Information -->\n    <h3 style=\"color: #007bff;\">Contact Information</h3>\n    <p>If you need further assistance or have any questions, please contact our support team at <a\n            href=\"mailto:support@smartmedibox.com\"\n            style=\"color: #007bff; text-decoration: none;\">support@smartmedibox.com</a> or call us at\n        <strong style=\"color: #007bff;\">+94-717-123-456</strong>.</p>\n\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 240,
+        "y": 1820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e423ad0b262624ed",
+        "type": "debug",
+        "z": "18cc067c93d5298d",
+        "name": "check the JSON object values",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 140,
+        "wires": []
+    }
+]
