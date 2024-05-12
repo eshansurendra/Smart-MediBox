@@ -59,6 +59,8 @@ To use the Smart Medibox:
 
 ## Node-RED Dashboard
 
+![Node-RED Dashboard](docs/assets/dashboard_node_red.png)
+
 1. After completing the above steps, all basic and major functionalities will work, except for the Node-RED based functionalities. Follow these instructions to deploy an instance of the Node-RED Dashboard:
 
 2. Import the `./Nodered Flows/flows.json` to the Node-RED canvas.
