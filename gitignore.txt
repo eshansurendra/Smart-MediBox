@@ -1,0 +1,4 @@
+ ```
+ # Folder to ignore
+ lib/
+ ```
