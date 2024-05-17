@@ -10,8 +10,6 @@ Smart Medibox is a smart device designed to assist users in managing their medic
 
 3. **Light Control**: A motorized curtain controls the amount of light entering the Medibox, helping to maintain the appropriate environment for medication storage.
 
-4. **Remote Control**: Users can control the Medibox remotely using a mobile app or a web interface, allowing them to set alarms, monitor conditions, and adjust settings even when they are not physically present.
-
 
 ## Technologies and Components
 ![Technologies and Components](docs/assets/diagram.png)
