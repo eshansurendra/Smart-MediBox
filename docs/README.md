@@ -12,7 +12,7 @@ Smart Medibox is a smart device designed to assist users in managing their medic
 
 
 ## Technologies and Components
-![Technologies and Components](docs/assets/diagram.png)
+![Technologies and Components](assets/diagram.png)
 ### Components:
 - ADAFRUIT SSD 1306 OLED Monochrome Display (128x64)
 - ESP32 Devkit V1
@@ -61,7 +61,7 @@ To use the Smart Medibox:
 
 ## Node-RED Dashboard
 
-![Node-RED Dashboard](docs/assets/dashboard_node_red.png)
+![Node-RED Dashboard](assets/dashboard_node_red.png)
 
 1. After completing the above steps, all basic and major functionalities will work, except for the Node-RED based functionalities. Follow these instructions to deploy an instance of the Node-RED Dashboard:
 
