@@ -10,14 +10,18 @@ Smart Medibox is a smart device designed to assist users in managing their medic
 
 3. **Light Control**: A motorized curtain controls the amount of light entering the Medibox, helping to maintain the appropriate environment for medication storage.
 
-## Technologies and Components
+4. **Remote Control**: Users can control the Medibox remotely using a mobile app or a web interface, allowing them to set alarms, monitor conditions, and adjust settings even when they are not physically present.
 
+
+## Technologies and Components
+![Technologies and Components](docs/assets/diagram.png)
 ### Components:
 - ADAFRUIT SSD 1306 OLED Monochrome Display (128x64)
 - ESP32 Devkit V1
 - DHT11 Temperature and Humidity Sensor (Configurable for DHT22)
 - SG90 Micro Server Motor
 - LDRs and 10kΩ Resistors
+- Push Buttons
 
 ### Notes:
 - The project is developed using the specified components. If components are changed, parameters may need adjustment accordingly.
@@ -63,7 +67,7 @@ To use the Smart Medibox:
 
 1. After completing the above steps, all basic and major functionalities will work, except for the Node-RED based functionalities. Follow these instructions to deploy an instance of the Node-RED Dashboard:
 
-2. Import the `./Nodered Flows/flows.json` to the Node-RED canvas.
+2. Import the `./Node-Red Flow/flows.json` to the Node-RED canvas.
 
 3. Set up required parameters of the flows including the MQTT server and then deploy. (This is defaulted to the Mosquitto testing server.)
 
@@ -71,5 +75,16 @@ To use the Smart Medibox:
 # About
 
 This project was first developed as the Semester 4 Project in the Module `EN2853 - Embedded Systems & Applications`
+
+## Contributing
+
+Contributions are welcome! 
+
+- **Bug Fixes:** If you find any bugs or issues, feel free to create an issue or submit a pull request.
+- **Feature Enhancements:** If you have ideas for new features or improvements, don't hesitate to share them.
+
+# License
+
+This project is licensed under the [MIT License](LICENSE).
 
 [go to the top](#Smart-Medibox)
