@@ -40,7 +40,9 @@ To use the Smart Medibox:
 - Git
 - PlatformIO with Arduino Framework Set up
 - Relevant hardware for testing if you are not intending to use simulations
-- Node-RED Installed Environment and an MQTT Broker (Both optional)
+- Node-RED Installed Environment and an MQTT Broker
+
+![PlatformIo](https://img.shields.io/badge/PlatformIO-5.2.0-blue) ![Node-RED](https://img.shields.io/badge/Node--RED-2.1.3-red) ![MQTT](https://img.shields.io/badge/MQTT-5.1.3-orange) ![VSCode](https://img.shields.io/badge/VSCode-1.60.2-green)
 
 ## Medibox Setup
 
