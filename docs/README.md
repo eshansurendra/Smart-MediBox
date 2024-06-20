@@ -51,11 +51,11 @@ To use the Smart Medibox:
     git clone https://github.com/eshansurendra/Smart-MediBox    
     ```
 
-    > [!IMPORTANT]
-    > If you intend to simulate the project using the Wokwi extension, clone the relevant branch using:
-    > ```bash 
-    > git clone -b Wokwi-Simulation https://github.com/eshansurendra/Smart-MediBox    
-    > ```
+> [!NOTE]
+> If you intend to simulate the project using the Wokwi extension, clone the relevant branch using:
+> ```bash 
+> git clone -b Wokwi-Simulation https://github.com/eshansurendra/Smart-MediBox    
+> ```
 
 2. PlatformIO typically installs required libraries automatically. If not, install them referring to the `configuration.ini` file displayed above.
 
